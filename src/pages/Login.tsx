@@ -19,9 +19,21 @@ export default function Login() {
     setLoading(true);
 
     try {
-      await authService.login(email, password);
+      const response = await authService.login(email, password);
       toast.success('Welcome back!');
-      navigate('/dashboard');
+      
+      // Redirect based on role
+      if (response.user.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else if (response.user.role === 'projectManager') {
+        navigate('/pm/dashboard');
+      } else if (response.user.role === 'productOwner') {
+        navigate('/po/dashboard');
+      } else if (response.user.role === 'scrumMaster') {
+        navigate('/sm/dashboard');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Invalid credentials');
     } finally {
