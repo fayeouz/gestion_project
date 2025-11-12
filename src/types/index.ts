@@ -1,6 +1,7 @@
 export type UserRole = 'admin' | 'projectManager' | 'productOwner' | 'scrumMaster' | 'teamMember';
 export type ProjectStatus = 'pending' | 'active' | 'completed';
 export type TaskStatus = 'pending' | 'active' | 'completed';
+export type MeetingType = 'daily_standup' | 'sprint_planning' | 'sprint_review' | 'sprint_retrospective';
 
 export interface User {
   id: number;
@@ -110,8 +111,43 @@ export interface Notification {
   updated_at: string;
 }
 
+export interface Meeting {
+  id: number;
+  title: string;
+  description?: string;
+  type: MeetingType;
+  duration: number; // Duration in minutes
+  user_id: number;
+  project_id: number;
+  created_at: string;
+  updated_at: string;
+  user?: User;
+  project?: Project;
+}
+
+export interface CreateMeetingData {
+  title: string;
+  description?: string;
+  type: MeetingType;
+  duration: number;
+  user_id: number;
+  project_id: number;
+}
+
+export interface MeetingStats {
+  total_meetings: number;
+  by_type: {
+    daily_standup: number;
+    sprint_planning: number;
+    sprint_review: number;
+    sprint_retrospective: number;
+  };
+  total_duration: number;
+  average_duration: number;
+}
+
 export interface AuthResponse {
-  token: string;
+  access_token: string;
   user: User;
 }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://fluoroscopic-madilynn-hylophagous.ngrok-free.dev/api/v1';
+const API_BASE_URL = 'https://api-backend-main-9rrxzo.laravel.cloud/api/v1';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
