@@ -42,7 +42,7 @@ export function RoleBasedSidebar() {
         { title: 'Toutes les Tâches', url: '/admin/tasks', icon: CheckSquare },
         { title: 'User Story', url: '/admin/user-stories', icon: BookOpen },
         { title: 'Sprints', url: '/admin/sprints', icon: Calendar },
-        { title: 'Paramètres', url: '/admin/settings', icon: Settings },
+        /*{ title: 'Paramètres', url: '/admin/settings', icon: Settings }*/
       ];
     }
 
