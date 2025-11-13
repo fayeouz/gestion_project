@@ -60,7 +60,7 @@ export default function AdminUsers() {
     name: '',
     email: '',
     password: '',
-    role: 'developer',
+    role: 'teamMember',
   });
 
   const queryClient = useQueryClient();
@@ -142,7 +142,7 @@ export default function AdminUsers() {
       name: '',
       email: '',
       password: '',
-      role: 'developer',
+      role: 'teamMember',
     });
   };
 
@@ -203,7 +203,7 @@ export default function AdminUsers() {
       case 'projectManager': return 'Chef de Projet';
       case 'productOwner': return 'Product Owner';
       case 'scrumMaster': return 'Scrum Master';
-      case 'developer': return 'Développeur';
+      case 'teamMember': return 'teamMember';
       default: return role.replace(/([A-Z])/g, ' $1').trim();
     }
   };
@@ -213,7 +213,7 @@ export default function AdminUsers() {
     { value: 'projectManager', label: 'Chef de Projet' },
     { value: 'productOwner', label: 'Product Owner' },
     { value: 'scrumMaster', label: 'Scrum Master' },
-    { value: 'developer', label: 'Développeur' },
+    { value: 'teamMember', label: 'teamMember' },
   ];
 
   return (
